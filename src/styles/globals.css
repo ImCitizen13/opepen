@@ -1,3 +1,186 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* --text-font-family: "Carbon Bold Bold", serif;
+    --text-font-size: 16px;
+    --text-font-style: normal;
+    --text-font-weight: 400;
+    --text-letter-spacing: 0px;
+    --text-line-height: 1.2em;
+    --text-paragraph-spacing: 0px;
+    --text-text-alignment: start; */
+
+  --text-font-family: "Space Grotesk", sans-serif;
+  --text-font-size: 24px;
+  --text-letter-spacing: -0.8px;
+  --text-line-height: 1.4em;
+  --text-color: white;
+
+  --color-face: #4d9e2f;
+  --color-lips: #ea3524;
+  --color-eyes: #ffffff;
+  --color-puple: #000000;
+  --color-mouthLine: #000000;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  
+    font-family: var(--text-font-family);
+    font-size: var(--text-font-size);
+    font-style: var(--text-font-style);
+    font-weight: var(--text-font-weight);
+    letter-spacing: var(--text-letter-spacing);
+    line-height: var(--text-line-height); 
+    color: var(--text-color); 
+  /* paragraph-spacing: var(--text-paragraph-spacing); */
+  /* text-alignment: var(--text-text-alignment);*/
+}
+
+.main {
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  /*   align-items: center;
+    justify-content: center; */
+  flex-wrap: wrap;
+}
+
+.flexRowCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flexColCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  /*   align-items: center;
+      justify-content: center; */
+  flex-wrap: wrap;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#opepen {
+  /* background-color: var(--color-face); */
+  width: min(360px, 720px, 1080px);
+  height: min(120px, 240px, 360px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.hBorderX {
+  width: 4%;
+}
+.hBorderY {
+  width: 3.2%;
+}
+.vBorderX {
+  height: 10.76%;
+}
+.vBorderY {
+  height: 7.68%;
+}
+.vBorderZ {
+  height: 42%;
+}
+
+#eyes {
+  height: 37.5%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  /*   position: relative; */
+}
+
+.eye {
+  width: 44.4%;
+  height: 100%;
+  /* background-color: var(--color-eyes); */
+}
+
+.puple {
+  width: 37.5%;
+  height: 100%;
+  /* background-color: var(--color-puple); */
+  position: relative;
+}
+
+#lips {
+  width: 100%;
+  height: 33.3%;
+  /* background-color: var(--color-lips); */
+}
+
+#mouth {
+  min-width: 100%;
+  height: 100%;
+}
+
+#mouthContainer {
+  width: 92%;
+  height: 100%;
+}
+
+#mouthLine {
+  width: 100%;
+  height: 16%;
+  /* background-color: var(--color-mouthLine); */
+}
+
+#colorPalette {
+  width: 170px;
+  height: 105px;
+  /* gap: 3px; */
+  background-color: gray;
+  font-size: small;
+}
+
+#leftPalette {
+  width: 61%;
+  height: 100%;
+}
+
+#rightPalette {
+  width: 38%;
+  height: 100%;
+}
+
+#topRightPalette {
+  height: 61%;
+  width: 100%;
+}
+
+#bottomRightPalette {
+  height: 38%;
+  width: 100%;
+}
+
