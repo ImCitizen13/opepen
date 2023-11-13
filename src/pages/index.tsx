@@ -1,6 +1,9 @@
 import Head from "next/head";
+import Image from "next/image";
 import ColorPalette from "~/components/ColorPalette";
-import FibonacciView, { OrientationEnum } from "~/components/FibonacciGrid/FibonacciView";
+import FibonacciView, {
+  OrientationEnum,
+} from "~/components/FibonacciGrid/FibonacciView";
 import Opepen from "~/components/Opepen";
 
 export default function Home() {
@@ -18,14 +21,112 @@ export default function Home() {
         </div>
 
         <Opepen /> */}
-        <FibonacciView
-        _orientation={OrientationEnum.horizontal}/>
-                <FibonacciView
-        _orientation={OrientationEnum.horizontalReverse}/>
-                <FibonacciView
-        _orientation={OrientationEnum.vertical}/>
-                <FibonacciView
-        _orientation={OrientationEnum.verticalReverse}/>
+        <div className="flexRowCenter gap-8">
+          <div className="flexColCenter">
+            <h1>Horizontal</h1>
+            <FibonacciView _orientation={OrientationEnum.horizontal}>
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/vertical_1.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/vertical_2.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/horizontal_3.jpg"
+              />
+            </FibonacciView>
+          </div>
+          <div className="flexColCenter">
+            <h1>HorizontalReverse</h1>
+            <FibonacciView _orientation={OrientationEnum.horizontalReverse}>
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_6.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_5.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_6.jpg"
+              />
+            </FibonacciView>
+          </div>
+          <div className="flexColCenter">
+            <h1>Vertical</h1>
+            <FibonacciView _orientation={OrientationEnum.vertical}>
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_2.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_4.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_5.jpg"
+              />
+            </FibonacciView>
+          </div>
+          <div className="flexColCenter">
+            <h1>VerticalReverse</h1>
+            <FibonacciView _orientation={OrientationEnum.verticalReverse}>
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_8.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_7.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_3.jpg"
+              />
+            </FibonacciView>
+          </div>
+        </div>
       </div>
     </>
   );

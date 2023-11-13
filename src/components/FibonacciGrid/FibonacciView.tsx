@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Children, PropsWithChildren, ReactNode, useState } from "react";
 import styles from "./FibonacciGrid.module.css";
 
 export enum OrientationEnum {
@@ -22,7 +22,6 @@ enum ViewType {
 
 export type FibonacciViewProps = {
   _orientation: OrientationEnum;
-  // _resolution: ViewResolution;
 };
 
 const FULL = "100%";
@@ -64,13 +63,16 @@ function orientView(
 }
 
 // Fib grid has to be modulo 3
-export default function FibonacciView({ _orientation }: FibonacciViewProps) {
+export default function FibonacciView({
+  _orientation, children
+}: PropsWithChildren<FibonacciViewProps>) {
+  const viewChildren = Children.toArray(children)
   const [orientation, setOrientation] = useState<OrientationEnum>(_orientation);
-  const [nBoxes, setNboxes] = useState<number>(3);
+  const [nBoxes, setNboxes] = useState<number>(viewChildren.length);
   const [elementResolution, setElementResolution] = useState<ViewResolution>(
     getViewResolution(orientation),
   );
-
+  
   return (
     <div
       id={`${styles.fibGrid}`}
@@ -87,10 +89,10 @@ export default function FibonacciView({ _orientation }: FibonacciViewProps) {
       {(orientation === OrientationEnum.horizontal ||
         orientation === OrientationEnum.verticalReverse) && (
         <div
-          className={`${styles.leftCol}`}
+          className={`${styles.leftCol} flexRowCenter`}
           style={orientView(orientation, ViewType.largest)}
         >
-          1
+          {viewChildren[0] && viewChildren[0]}
         </div>
       )}
 
@@ -104,7 +106,7 @@ export default function FibonacciView({ _orientation }: FibonacciViewProps) {
             className={`${styles.topRight}`}
             style={orientView(orientation, ViewType.medium)}
           >
-            2
+            {viewChildren[1] && viewChildren[1]}
           </div>
         )}
 
@@ -112,7 +114,7 @@ export default function FibonacciView({ _orientation }: FibonacciViewProps) {
           className={`${styles.bottomRight}`}
           style={orientView(orientation, ViewType.small)}
         >
-          3
+          {viewChildren[2] && viewChildren[2]}
         </div>
 
         {(orientation === OrientationEnum.horizontalReverse ||
@@ -121,7 +123,7 @@ export default function FibonacciView({ _orientation }: FibonacciViewProps) {
             className={`${styles.topRight}`}
             style={orientView(orientation, ViewType.medium)}
           >
-            2
+            {viewChildren[1] && viewChildren[1]}
           </div>
         )}
       </div>
@@ -131,7 +133,7 @@ export default function FibonacciView({ _orientation }: FibonacciViewProps) {
           className={`${styles.leftCol}`}
           style={orientView(orientation, ViewType.largest)}
         >
-          1
+          {viewChildren[0] && viewChildren[0]}
         </div>
       )}
     </div>
