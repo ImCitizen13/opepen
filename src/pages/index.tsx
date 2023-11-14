@@ -21,10 +21,10 @@ export default function Home() {
         </div>
 
         <Opepen /> */}
-        <div className="flexRowCenter gap-8 h-[80%] w-[80%]">
+        <div className="flexRowCenter gap-8 h-[80%] w-[100%] p-10">
           <div className="flexColCenter">
-            <div className="flexRowCenter">
-            <h1>Horizontal</h1>
+            <h1>Horizontal -&gt; Flip</h1>
+            <div className="flexRowCenter gap-2">
             <FibonacciView _orientation={OrientationEnum.horizontal}>
               <Image
                 height={480}
@@ -48,8 +48,7 @@ export default function Home() {
                 src="/upsplash/horizontal_3.jpg"
               />
             </FibonacciView>
-            <h1>Horizontal Flip</h1>
-            <FibonacciView _orientation={OrientationEnum.horizontal}>
+            <FibonacciView _orientation={OrientationEnum.horizontal} _flip={true}>
               <Image
                 height={480}
                 width={360}
@@ -75,7 +74,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flexColCenter">
-            <h1>HorizontalReverse</h1>
+          <h1>HorizontalReverse -&gt; Flip</h1>
+          <div className="flexRowCenter gap-2">
             <FibonacciView _orientation={OrientationEnum.horizontalReverse}>
               <Image
                 height={480}
@@ -99,9 +99,34 @@ export default function Home() {
                 src="/upsplash/horizontal_6.jpg"
               />
             </FibonacciView>
+            <FibonacciView _orientation={OrientationEnum.horizontalReverse} _flip={true}>
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_6.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_5.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_6.jpg"
+              />
+            </FibonacciView>
+            </div>
           </div>
           <div className="flexColCenter">
-            <h1>Vertical</h1>
+          <h1>Vertical -&gt; Flip</h1>
+          <div className="flexRowCenter gap-2">
             <FibonacciView _orientation={OrientationEnum.vertical}>
               <Image
                 height={360}
@@ -125,9 +150,34 @@ export default function Home() {
                 src="/upsplash/horizontal_5.jpg"
               />
             </FibonacciView>
+            <FibonacciView _orientation={OrientationEnum.vertical} _flip={true}>
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_2.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_4.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_5.jpg"
+              />
+            </FibonacciView>
+            </div>
           </div>
           <div className="flexColCenter">
-            <h1>VerticalReverse</h1>
+          <h1>VerticalReverse -&gt; Flip</h1>
+          <div className="flexRowCenter gap-2">
             <FibonacciView _orientation={OrientationEnum.verticalReverse}>
               <Image
                 height={360}
@@ -151,8 +201,31 @@ export default function Home() {
                 src="/upsplash/vertical_3.jpg"
               />
             </FibonacciView>
+            <FibonacciView _orientation={OrientationEnum.verticalReverse} _flip={true}>
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_8.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/horizontal_7.jpg"
+              />
+              <Image
+                height={360}
+                width={480}
+                alt="Upsplash"
+                style={{ width: "100%", height: "100%" }}
+                src="/upsplash/vertical_3.jpg"
+              />
+            </FibonacciView>
+            </div>
           </div>
-          
         </div>
       </div>
     </>
