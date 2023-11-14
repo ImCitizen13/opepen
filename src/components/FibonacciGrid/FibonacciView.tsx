@@ -63,7 +63,9 @@ function orientView(
   }
 }
 
-// function
+// function flip(){
+
+// }//
 
 // Fib grid has to be modulo 3
 
@@ -95,7 +97,8 @@ export default function FibonacciView({
     >
       {/* Largest View */}
       {(orientation === OrientationEnum.horizontal ||
-        orientation === OrientationEnum.verticalReverse) && (
+        (orientation === OrientationEnum.verticalReverse && !flip) ||
+        (orientation === OrientationEnum.vertical && flip)) && (
         <div
           className={`${styles.leftCol} flexRowCenter`}
           style={orientView(orientation, ViewType.largest)}
@@ -110,7 +113,8 @@ export default function FibonacciView({
         style={orientView(orientation, ViewType.large)}
       >
         {/* Medium View */}
-        {((orientation === OrientationEnum.horizontal && !flip)||
+        {((orientation === OrientationEnum.horizontal && !flip) ||
+          (orientation === OrientationEnum.horizontalReverse && !flip) ||
           orientation === OrientationEnum.vertical) && (
           <div
             className={`${styles.topRight}`}
@@ -129,7 +133,7 @@ export default function FibonacciView({
         </div>
 
         {/* Medium View */}
-        {(orientation === OrientationEnum.horizontalReverse ||
+        {((orientation === OrientationEnum.horizontalReverse && flip) ||
           orientation === OrientationEnum.verticalReverse ||
           (orientation === OrientationEnum.horizontal && flip)) && (
           <div
@@ -142,8 +146,9 @@ export default function FibonacciView({
       </div>
 
       {/* Largest View */}
-      {(orientation === OrientationEnum.vertical ||
-        orientation === OrientationEnum.horizontalReverse) && (
+      {((orientation === OrientationEnum.vertical && !flip) ||
+        orientation === OrientationEnum.horizontalReverse ||
+        (orientation === OrientationEnum.verticalReverse && flip)) && (
         <div
           className={`${styles.leftCol}`}
           style={orientView(orientation, ViewType.largest)}
