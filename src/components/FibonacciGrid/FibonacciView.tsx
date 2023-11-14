@@ -147,8 +147,8 @@ export default function FibonacciView({
 
       {/* Largest View */}
       {((orientation === OrientationEnum.vertical && !flip) ||
-        (orientation === OrientationEnum.horizontalReverse) ||
-        (orientation === OrientationEnum.verticalReverse && flip) )&& (
+        orientation === OrientationEnum.horizontalReverse ||
+        (orientation === OrientationEnum.verticalReverse && flip)) && (
         <div
           className={`${styles.leftCol}`}
           style={orientView(orientation, ViewType.largest)}
