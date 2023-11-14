@@ -22,6 +22,7 @@ enum ViewType {
 
 export type FibonacciViewProps = {
   _orientation: OrientationEnum;
+  _flip?: boolean;
 };
 
 const FULL = "100%";
@@ -62,17 +63,23 @@ function orientView(
   }
 }
 
+// function
+
 // Fib grid has to be modulo 3
+
 export default function FibonacciView({
-  _orientation, children
+  _orientation,
+  children,
+  _flip = false,
 }: PropsWithChildren<FibonacciViewProps>) {
-  const viewChildren = Children.toArray(children)
+  const viewChildren = Children.toArray(children);
+  const [flip, setFlip] = useState<boolean>(_flip);
   const [orientation, setOrientation] = useState<OrientationEnum>(_orientation);
   const [nBoxes, setNboxes] = useState<number>(viewChildren.length);
   const [elementResolution, setElementResolution] = useState<ViewResolution>(
     getViewResolution(orientation),
   );
-  
+
   return (
     <div
       id={`${styles.fibGrid}`}
@@ -86,6 +93,7 @@ export default function FibonacciView({
             : "row",
       }}
     >
+      {/* Largest View */}
       {(orientation === OrientationEnum.horizontal ||
         orientation === OrientationEnum.verticalReverse) && (
         <div
@@ -96,11 +104,13 @@ export default function FibonacciView({
         </div>
       )}
 
+      {/* Large View */}
       <div
         className={`${styles.rightCol}`}
         style={orientView(orientation, ViewType.large)}
       >
-        {(orientation === OrientationEnum.horizontal ||
+        {/* Medium View */}
+        {((orientation === OrientationEnum.horizontal && !flip)||
           orientation === OrientationEnum.vertical) && (
           <div
             className={`${styles.topRight}`}
@@ -110,6 +120,7 @@ export default function FibonacciView({
           </div>
         )}
 
+        {/* Small View */}
         <div
           className={`${styles.bottomRight}`}
           style={orientView(orientation, ViewType.small)}
@@ -117,8 +128,10 @@ export default function FibonacciView({
           {viewChildren[2] && viewChildren[2]}
         </div>
 
+        {/* Medium View */}
         {(orientation === OrientationEnum.horizontalReverse ||
-          orientation === OrientationEnum.verticalReverse) && (
+          orientation === OrientationEnum.verticalReverse ||
+          (orientation === OrientationEnum.horizontal && flip)) && (
           <div
             className={`${styles.topRight}`}
             style={orientView(orientation, ViewType.medium)}
@@ -127,6 +140,8 @@ export default function FibonacciView({
           </div>
         )}
       </div>
+
+      {/* Largest View */}
       {(orientation === OrientationEnum.vertical ||
         orientation === OrientationEnum.horizontalReverse) && (
         <div

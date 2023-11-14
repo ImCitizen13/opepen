@@ -21,8 +21,9 @@ export default function Home() {
         </div>
 
         <Opepen /> */}
-        <div className="flexRowCenter gap-8">
+        <div className="flexRowCenter gap-8 h-[80%] w-[80%]">
           <div className="flexColCenter">
+            <div className="flexRowCenter">
             <h1>Horizontal</h1>
             <FibonacciView _orientation={OrientationEnum.horizontal}>
               <Image
@@ -47,6 +48,31 @@ export default function Home() {
                 src="/upsplash/horizontal_3.jpg"
               />
             </FibonacciView>
+            <h1>Horizontal Flip</h1>
+            <FibonacciView _orientation={OrientationEnum.horizontal}>
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/vertical_1.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/vertical_2.jpg"
+              />
+              <Image
+                height={480}
+                width={360}
+                style={{ width: "100%", height: "100%" }}
+                alt="Upsplash"
+                src="/upsplash/horizontal_3.jpg"
+              />
+            </FibonacciView>
+            </div>
           </div>
           <div className="flexColCenter">
             <h1>HorizontalReverse</h1>
@@ -126,6 +152,7 @@ export default function Home() {
               />
             </FibonacciView>
           </div>
+          
         </div>
       </div>
     </>
